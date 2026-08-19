@@ -44,3 +44,83 @@ PostgreSQL        AI Services
                     FAISS
                       ↓
               Knowledge Base
+
+
+
+RAG Flow
+Knowledge Base
+      ↓
+Chunking
+      ↓
+Embeddings
+      ↓
+FAISS
+      ↓
+Relevant Documents
+      ↓
+Groq LLM
+      ↓
+AI Draft Reply
+      ↓
+Agent Review
+      ↓
+Final Reply
+Setup
+Backend
+cd backend
+python -m venv quick
+quick\Scripts\activate
+pip install -r requirements.txt
+
+Create .env:
+
+DATABASE_URL=postgresql://postgres:password@localhost:5432/quickdesk
+SECRET_KEY=your_secret_key
+GROQ_API_KEY=your_groq_api_key
+
+Run:
+
+python seed.py
+uvicorn app.main:app --reload
+
+Backend: http://127.0.0.1:8000
+
+Frontend
+cd frontend
+npm install
+npm run dev
+
+Frontend: http://localhost:5173
+
+User Roles
+Employee
+Create tickets
+View own tickets
+Track ticket status
+Agent
+View all tickets
+Search and filter tickets
+Generate AI replies
+Override AI suggestions
+Reply and resolve tickets
+View metrics
+Security
+JWT authentication
+bcrypt password hashing
+Backend role-based authorization
+API keys stored in .env
+.env and virtual environments excluded from Git
+Repository
+
+GitHub: https://github.com/PrakerlaTejaswini/QuickDesk
+
+Demo
+
+Add the demo video link here after recording.
+
+Future Improvements
+AI confidence score
+Automated tests
+Docker deployment
+Email notifications
+Advanced monitoring
